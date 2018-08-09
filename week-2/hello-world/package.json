@@ -1,0 +1,8 @@
+{
+    "name": "hello-world",
+    "author": "Leon Maxwell",
+    "private": true,
+    "dependencies": {
+        "express": "^4.16.3"
+    }
+}
