@@ -1,0 +1,9 @@
+{
+    "name": "ejs-views",
+    "author": "Leon Maxwell",
+    "private": true,
+    "dependencies": {
+        "ejs": "^2.6.1",
+        "express": "^4.16.3"
+    }
+}
