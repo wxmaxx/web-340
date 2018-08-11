@@ -35,7 +35,7 @@ app.set("view engine", "ejs");
 app.get("/", function(req, res) {
     res.render("index", {
         firstName: "Leon",
-        lastName: "Maxwel",
+        lastName: "Maxwell",
         address: "17209 Samantha Rd" 
     });
 });
