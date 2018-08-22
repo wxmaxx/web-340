@@ -13,6 +13,10 @@
 
 var header = require('../../header.js');
 
+// Adding header information
+console.log(header.display("Leon", "Maxwell", "Exercise 4.2")); 
+console.log("\n");
+
 //set requires
 var express = require("express");
 var http = require("http");
@@ -24,7 +28,7 @@ var app = express();
 
 //make a request to retrieve customer ID
 app.get("/customer/:id", function (req, res) {
-	var id = parseInt(request.params.id, 10);
+	var id = parseInt(request.params.id, 5);
 
   response.json({
         firstName: "Leon",
