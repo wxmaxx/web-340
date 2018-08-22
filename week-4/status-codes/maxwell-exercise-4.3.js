@@ -28,8 +28,8 @@ var app = express();
 
 //set 404 (not found) status
 app.get("/not-found", function(req, res) {
-    response.status(404);
-    response.json({
+    res.status(404);
+    res.json({
         error: "Dude, where's your car?  I don't know dude, where's your car?"
     });
 });
@@ -37,8 +37,8 @@ app.get("/not-found", function(req, res) {
 
 //set 200 (OK) status
 app.get("/ok", function(req, res) {
-    response.status(200);
-    response.json({
+    res.status(200);
+    res.json({
         message: "Congratulations! This seems to work."
     });
 });
@@ -46,8 +46,8 @@ app.get("/ok", function(req, res) {
 
 //Set 501 (under construction) status
 app.get("/not-implemented", function(req, res) {
-    response.status(501);
-    response.json({
+    res.status(501);
+    res.json({
         error: "Page is under construction, please come back next year."
     });
 });
@@ -55,8 +55,8 @@ app.get("/not-implemented", function(req, res) {
 
 //Set 403 (forbidden) status
 app.get("/forbidden", function(req, res) {
-    response.status(403);
-    response.json({
+    res.status(403);
+    res.json({
         error: "Page is forbidden, recheck user credentials."
     });
 });
