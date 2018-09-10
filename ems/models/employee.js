@@ -24,5 +24,5 @@ var employeeSchema = new Schema({
 var Employee = mongoose.model("Employee", employeeSchema);
 
 
-// expose the fruit to calling files
+// expose the employee to calling files
 module.exports = Employee;
