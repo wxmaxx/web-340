@@ -4,25 +4,23 @@
 ; Author: Professor Krasso 
 ; Date:   11 December 2017
 ; Modified By: Leon Maxwell
-; Modified date: 09 September 2018
+; Modified date: 16 September 2018
 ; Description: EMS employee model page
 ;===========================================
 */
 
 // required
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
 
 // define the employeeSchema
 var employeeSchema = new Schema({
-    name: String
+  firstName: { type: String },
+  lastName: { type: String }
 });
 
-
 // define the employee model
-var Employee = mongoose.model("Employee", employeeSchema);
-
+var Employee = mongoose.model('Employee', employeeSchema);
 
 // expose the employee to calling files
 module.exports = Employee;

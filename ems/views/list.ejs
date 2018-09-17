@@ -4,7 +4,7 @@
 ; Author: Professor Krasso 
 ; Date:   11 December 2017
 ; Modified By: Leon Maxwell
-; Modified date: 09 September 2018
+; Modified date: 16 September 2018
 ; Description: EMS ejs list page
 ;===========================================
 */
@@ -19,39 +19,44 @@
 
 <body>
 
-<% include navbar %>
+    <% include navbar %>
 
-<div role="main" class="container" style="width: 50%;">
-    <br/><br/>
+    <div role="main" class="container" style="width: 50%;">
+        <br /><br />
 
-    <% if (employee.length) { %>
-    <h2>-- Employee Listing --</h2><br />
-    <a href="/new">Add New</a>
-    <table class="table table-hover">
-        <thead class="thead-dark">
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% employee.forEach(function (entry, position) { %>
-        <tr>
-            <td><%= entry.name %></td>
-            <td><a href="/view/<%= entry.name %>">VIEW</a></td>
-            <td><%= entry.position %></td>
-            <td><a href="/view/<%= entry.position %>">VIEW</a></td>
-        </tr>
-        </tbody>
-        <% }) %>
-    </table>
-    <% } else { %>
-    No entries! <a href="/new">Add one!</a>
-    <% } %>
+        <% if (employee.length) { %>
+        <h2>-- Employee Listing --</h2><br />
+        <a href="/new">Add New</a><br />
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% employee.forEach(function (entry, Employee) { %>
+                <tr>
+                    <td>
+                        <%= Employee.first %>
+                    </td>
+                    <td><a href="/view/<%= Employee.first %>">VIEW</a></td>
+                    <td>
+                        <%= Employee.last %>
+                    </td>
+                    <td><a href="/view/<%= Employee.last %>">VIEW</a></td>
+                </tr>
+            </tbody>
+            <% }) %>
+        </table>
+        <% } else { %>
+        No entries! <a href="/new">Add one!</a>
+        <% } %>
 
-    <br/>
-</div>
-<% include scripts %>
+        <br />
+    </div>
+    <% include scripts %>
 
 </body>
+
 </html>
