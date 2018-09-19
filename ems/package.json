@@ -14,8 +14,8 @@
     },
     "scripts": {
         "start": "node app.js"
-      },
-      "engines": {
+    },
+    "engines": {
         "node": "10.10.x"
-      }
+    }
 }
