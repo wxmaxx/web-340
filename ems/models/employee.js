@@ -15,8 +15,7 @@ var Schema = mongoose.Schema;
 
 // define the employeeSchema
 var employeeSchema = new Schema({
-  firstName: { type: String },
-  lastName: { type: String }
+  name: String
 });
 
 // define the employee model

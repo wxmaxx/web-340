@@ -8,17 +8,14 @@
 
     <% include navbar %>
 
-    <div role="main" class="container" style="width: 100%;">
+    <div role="main" class="container" style="width: 50%;">
         <br /><br />
 
         <h2>-- Employee Record --</h2>
         <div>
             <div class="form-group">
-                <label for="txtName">First Name:</label>
-                <input type="text" class="form-control" id="txtName" readonly value="<%= employee[0].firstName %>" name="firstName" />
-
-                <label for="txtName">Last Name:</label>
-                <input type="text" class="form-control" id="txtName" readonly value="<%= employee[0].lastName %>" name="lastName" />
+                <label for="firstName">Name:</label>
+                <input type="text" class="form-control" id="firstName" readonly value="<%= employees[0].name %>" name="txtName" />
 
             </div>
 

@@ -30,6 +30,7 @@ mongoose.connect(
     useMongoClient: true
   }
 );
+
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -50,6 +51,7 @@ app.use(
     extended: true
   })
 );
+
 app.use(cookieParser());
 app.use(helmet.xssFilter());
 app.use(csrfProtection);
@@ -66,9 +68,9 @@ app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 8080);
 
 // route requests
-app.get('/index', function(request, response) {
+app.get('/', function(request, response) {
   response.render('index', {
-    title: 'Maxwell home'
+    title: 'Maxwell Home Page'
   });
 });
 
@@ -91,7 +93,8 @@ app.post('/process', function(request, response) {
 
   // create a employee model
   var employee = new Employee({
-    name: employeeName
+    first: firstName,
+    last: lastName
   });
 
   // save
@@ -105,12 +108,12 @@ app.post('/process', function(request, response) {
 });
 
 app.get('/list', function(request, response) {
-  Employee.find({}, function(error, employee) {
+  Employee.find({}, function(error, employees) {
     if (error) throw error;
 
     response.render('list', {
       title: 'Employee List',
-      employee: employee
+      employees: employees
     });
   });
 });
@@ -118,15 +121,15 @@ app.get('/list', function(request, response) {
 app.get('/view/:queryName', function(request, response) {
   var queryName = request.params.queryName;
 
-  Employee.find({ name: queryName }, function(error, employee) {
+  Employee.find({ name: queryName }, function(error, employees) {
     if (error) throw error;
 
-    console.log(employee);
+    console.log(employees);
 
-    if (employee.length > 0) {
+    if (employees.length > 0) {
       response.render('view', {
         title: 'Employee Record',
-        employee: employee
+        employee: employees
       });
     } else {
       response.redirect('/list');
