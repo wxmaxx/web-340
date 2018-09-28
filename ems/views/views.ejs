@@ -1,12 +1,7 @@
 <!-- This is a read-only page with selected employee details -->
-<!DOCTYPE html>
-<html lang="en">
 
 <% include header %>
-
-<body>
-
-    <% include navbar %>
+<% include navbar %>
 
     <div role="main" class="container" style="width: 50%;">
         <br /><br />
@@ -14,18 +9,15 @@
         <h2>-- Employee Record --</h2>
         <div>
             <div class="form-group">
-                <label for="firstName">Name:</label>
-                <input type="text" class="form-control" id="firstName" readonly value="<%= employees[0].name %>" name="txtName" />
+                <label for="txtName">Name:</label>
+                <input type="text" class="form-control" id="txtName" readonly value="<%= employees[0].name %>" name="txtName" />
 
             </div>
 
             <br /><br />
 
-            <a href="/list">Return to Employees</a>
+            <a href="list">Return to Employees</a>
         </div>
 
-        <% include scripts %>
-
-</body>
-
-</html>
+<% include footer %>
+<% include scripts %>
