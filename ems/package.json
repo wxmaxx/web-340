@@ -16,6 +16,6 @@
         "start": "node app.js"
     },
     "engines": {
-        "node": "10.10.x"
+        "node": "10.8.0"
     }
 }
