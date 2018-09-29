@@ -12,13 +12,8 @@
 
 <!-- This is the landing page -->
 <!-- Include the header, navbar, footer, and scripts ejs files -->
-<!DOCTYPE html>
-<html lang="en">
 
 <% include header %>
-
-<body>
-
 <% include navbar %>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -35,27 +30,17 @@
         <div class="col-md-4">
             <h2>Employees</h2>
             <p>View details here.</p>
-            <p><a class="btn btn-secondary" href="/views.ejs" role="button">See Current Employees &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="views.ejs" role="button">See Current Employees &raquo;</a></p>
         </div>
         <div class="col-md-4">
             <h2>Add Employee</h2>
             <p>View other details here.</p>
-            <p><a class="btn btn-secondary" href="/new.ejs" role="button">Add an Employee &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="new.ejs" role="button">Add an Employee &raquo;</a></p>
         </div>
-       
-    </div>
-    <div>
-        <% include new %>
-    </div>
 
-    
-    <% include footer %>
+    </div>
 
 </div>
 
-
-
+<% include footer %>
 <% include scripts %>
-
-</body>
-</html>

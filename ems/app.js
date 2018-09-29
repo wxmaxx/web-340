@@ -93,8 +93,8 @@ app.post('/process', function(request, response) {
 
   // create a employee model
   var employee = new Employee({
-    first: firstName,
-    last: lastName
+    firstName: firstName,
+    lastName: lastName
   });
 
   // save

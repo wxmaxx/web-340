@@ -36,30 +36,22 @@
                 </tr>
             </thead>
             <tbody>
-                <% employees.forEach(function (entry) { %>
+                <% employees.forEach(function (employee) { %>
                 <tr>
                     <td>
-                        <%= entry.firstName %>
+                        <%= employee.name %>
                     </td>
-                    <td><a href="/list/<%= entry.firstName %>"></a>view</td>
-                    <td>
-                        <%= entry.lastName %>
-                    </td>
-                    <td>
-                        <a href="/list/<%= entry.lastName %>">view</a>
-                    </td>
+                    <td><a href="/view/<%= employee.name %>"></a>view</td>
                 </tr>
             </tbody>
             <% }) %>
         </table>
         <% } else { %>
-        No entries! <a href="/new">Add one!</a>
+        No entries! <a href="new">Add a new employee</a>
         <% } %>
 
         <br />
     </div>
-    <% include scripts %>
-
+    <% include footer %>
 </body>
-
-</html>
+<% include scripts %>
