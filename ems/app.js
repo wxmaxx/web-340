@@ -33,8 +33,9 @@ mongoose.connect(
 
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
+
 db.on("error", console.error.bind(console, "MongoDB connection error: "));
-db.once("open", function() {
+db.once("open", function () {
   console.log("Application connected to mLab MongoDB instance");
 });
 
@@ -55,7 +56,7 @@ app.use(
 app.use(cookieParser());
 app.use(helmet.xssFilter());
 app.use(csrfProtection);
-app.use(function(request, response, next) {
+app.use(function (request, response, next) {
   var token = request.csrfToken();
   response.cookie('XSRF-TOKEN', token);
   response.locals.csrfToken = token;
@@ -68,19 +69,19 @@ app.set("view engine", "ejs");
 app.set("port", process.env.PORT || 8080);
 
 // route requests
-app.get("/", function(request, response) {
+app.get("/", function (request, response) {
   response.render("index", {
     title: "Maxwell Home Page"
   });
 });
 
-app.get("/new", function(request, response) {
+app.get("/new", function (request, response) {
   response.render("new", {
     title: "New Employee"
   });
 });
 
-app.post("/process", function(request, response) {
+app.post("/process", function (request, response) {
   // displays the response if submit button pressed with no name present
   if (!request.body.txtName) {
     response.status(400).send("Entries must have a name");
@@ -97,15 +98,15 @@ app.post("/process", function(request, response) {
   });
 
   // save
-  employee.save(function(error) {
+  employee.save(function (error) {
     if (error) throw error;
     console.log(employeeName + " saved successfully!");
   });
   response.redirect("/list");
 });
 
-app.get("/list", function(request, response) {
-  Employee.find({}, function(error, employees) {
+app.get("/list", function (request, response) {
+  Employee.find({}, function (error, employees) {
     if (error) throw error;
 
     response.render("list", {
@@ -115,10 +116,10 @@ app.get("/list", function(request, response) {
   });
 });
 
-app.get("/view/:queryName", function(request, response) {
+app.get("/view/:queryName", function (request, response) {
   var queryName = request.params.queryName;
 
-  Employee.find({ 'name': queryName }, function(error, employees) {
+  Employee.find({ 'name': queryName }, function (error, employees) {
     if (error) throw error;
 
     console.log(employees);
@@ -134,6 +135,6 @@ app.get("/view/:queryName", function(request, response) {
   });
 });
 
-http.createServer(app).listen(app.get("port"), function() {
+http.createServer(app).listen(app.get("port"), function () {
   console.log("Application started on port " + app.get("port"));
 });
